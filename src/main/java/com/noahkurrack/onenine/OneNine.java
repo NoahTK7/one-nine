@@ -5,20 +5,36 @@ import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.apache.logging.log4j.Level;
 
-@Mod(modid = com.noahkurrack.onenine.OneNineMod.MODID, version = com.noahkurrack.onenine.OneNineMod.VERSION)
-public class OneNineMod {
-    public static final String MODID = "one-nine";
-    public static final String VERSION = "1.0";
-    
+@Mod(modid = com.noahkurrack.onenine.reference.Mod.MODID, name = com.noahkurrack.onenine.reference.Mod.NAME, version = com.noahkurrack.onenine.reference.Mod.VERSION)
+public class OneNine {
+
+    @Mod.Instance("one-nine")
+    public static OneNine instance;
+
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event){
+
+        
+
+    }
+
+    @EventHandler
+     public void init(FMLInitializationEvent event){
 
         MinecraftForge.EVENT_BUS.register(this);
+
+    }
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event){
+
+
 
     }
 
