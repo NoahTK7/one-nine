@@ -1,1 +1,1 @@
-A Minecraft mod. Mincraft version 1.9, Forge version x.
+A Minecraft mod. Mincraft version 1.9, Forge version 1.9-12.16.0.1776-1.9.
