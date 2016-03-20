@@ -1,0 +1,55 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+## Windows
+Thumbs.db
+
+## gradle
+/.gradle
+/build
+
+## ForgeGradle
+/run
+
+## eclipse
+/.settings
+/.metadata
+/.classpath
+/.project
+/eclipse
+/bin
+
+## intellij
+/out
+/.idea
+/atlassian-ide-plugin.xml
+/*.ipr
+/*.iws
+/*.iml
+
+## Private Stuffs
+/private.properties
+
+## Jars
+*.jar
+!/gradle/wrapper/gradle-wrapper.jar
