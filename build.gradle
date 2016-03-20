@@ -21,7 +21,7 @@ plugins {
 }
 */
 version = "1.0"
-group= "com.noah_kurrack.one_nine" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "com.noahkurrack.onenine" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "one-nine"
 
 minecraft {
