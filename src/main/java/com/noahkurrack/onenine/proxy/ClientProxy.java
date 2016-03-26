@@ -18,8 +18,24 @@
 
 package com.noahkurrack.onenine.proxy;
 
+import com.noahkurrack.onenine.particle.Particle;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
+
 public class ClientProxy extends CommonProxy {
 
+    @Override
+    public void spawnClientParticles(EntityPlayer player, EnumParticleTypes type, double offsetX, double offsetY, double offsetZ) {
 
+        Particle.spawnClientParticles(player, type, offsetX, offsetY, offsetZ);
+
+    }
+
+    @Override
+    public void spawnServerParticles(){
+
+        Particle.spawnServerParticles();
+
+    }
 
 }

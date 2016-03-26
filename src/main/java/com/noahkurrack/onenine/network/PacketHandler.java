@@ -16,21 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.noahkurrack.onenine.proxy;
+package com.noahkurrack.onenine.network;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumParticleTypes;
+import com.noahkurrack.onenine.reference.ModRef;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-public class ServerProxy extends CommonProxy {
+public class PacketHandler {
 
-    @Override
-    public void spawnClientParticles(EntityPlayer player, EnumParticleTypes type, double offsetX, double offsetY, double offsetZ) {
-        //NO-OP
-    }
-
-    @Override
-    public void spawnServerParticles() {
-        //NO-OP
-    }
+    public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(ModRef.MOD_MODID);
 
 }

@@ -18,8 +18,13 @@
 
 package com.noahkurrack.onenine.proxy;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
+
 public interface IProxy {
 
+    public abstract void spawnClientParticles(EntityPlayer player, EnumParticleTypes type, double offsetX, double offsetY, double offsetZ);
 
+    public abstract void spawnServerParticles();
 
 }

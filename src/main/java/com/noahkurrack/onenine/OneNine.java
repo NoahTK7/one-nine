@@ -18,9 +18,12 @@
 
 package com.noahkurrack.onenine;
 
+import com.noahkurrack.onenine.handler.event.Event;
 import com.noahkurrack.onenine.proxy.IProxy;
 import com.noahkurrack.onenine.reference.ModRef;
 import com.noahkurrack.onenine.util.LogHelper;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -29,7 +32,10 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = ModRef.MOD_MODID, name = ModRef.MOD_NAME, version = ModRef.MOD_VERSION)
 public class OneNine {
@@ -50,7 +56,7 @@ public class OneNine {
     @EventHandler
      public void init(FMLInitializationEvent event){
 
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new Event());
 
         LogHelper.info("One Nine Initialized");
 
@@ -63,10 +69,4 @@ public class OneNine {
 
     }
 
-    @SubscribeEvent
-    public void onPlayerTick(TickEvent.PlayerTickEvent tick){
-
-        LogHelper.info("Player Tick!");
-
-    }
 }

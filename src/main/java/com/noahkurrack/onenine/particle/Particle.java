@@ -16,21 +16,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.noahkurrack.onenine.proxy;
+package com.noahkurrack.onenine.particle;
 
+import com.noahkurrack.onenine.network.PacketHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
 
-public class ServerProxy extends CommonProxy {
+public class Particle {
 
-    @Override
-    public void spawnClientParticles(EntityPlayer player, EnumParticleTypes type, double offsetX, double offsetY, double offsetZ) {
-        //NO-OP
+    public static void spawnClientParticles(EntityPlayer player, EnumParticleTypes type, double offsetX, double offsetY, double offsetZ){
+
+        if (player.worldObj.isRemote) {
+
+            player.worldObj.spawnParticle(type, player.posX, player.posY, player.posZ, offsetX, offsetY, offsetZ, new int[0]);
+
+        }
+
+
     }
 
-    @Override
-    public void spawnServerParticles() {
-        //NO-OP
+    public static void spawnServerParticles(){
+
+        //PacketHandler.INSTANCE.sendToAllAround();
+
     }
 
 }

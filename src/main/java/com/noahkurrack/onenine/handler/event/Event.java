@@ -16,21 +16,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.noahkurrack.onenine.proxy;
+package com.noahkurrack.onenine.handler.event;
 
+import com.noahkurrack.onenine.OneNine;
+import com.noahkurrack.onenine.proxy.ClientProxy;
+import com.noahkurrack.onenine.util.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-public class ServerProxy extends CommonProxy {
+public class Event {
 
-    @Override
-    public void spawnClientParticles(EntityPlayer player, EnumParticleTypes type, double offsetX, double offsetY, double offsetZ) {
-        //NO-OP
+    @SubscribeEvent
+    public void onPlayerTick(TickEvent.PlayerTickEvent tick){
+
+        //LogHelper.info("Player Tick!");
+
     }
 
-    @Override
-    public void spawnServerParticles() {
-        //NO-OP
+    @SubscribeEvent
+    public void onItemCrafted(PlayerEvent.ItemCraftedEvent event){
+
+        LogHelper.info("Item Crafted");
+
+        OneNine.proxy.spawnClientParticles(event.player, EnumParticleTypes.FIREWORKS_SPARK, 0D, 0D, 0D);
+
     }
 
 }
