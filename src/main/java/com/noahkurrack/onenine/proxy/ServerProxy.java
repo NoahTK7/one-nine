@@ -29,7 +29,7 @@ public class ServerProxy extends CommonProxy {
     }
 
     @Override
-    public void spawnServerParticles() {
+    public void spawnServerParticles(String particleName, int dimensionId, double xCoord, double yCoord, double zCoord, double xVelocity, double yVelocity, double zVelocity) {
         //NO-OP
     }
 

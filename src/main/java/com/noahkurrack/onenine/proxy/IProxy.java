@@ -25,6 +25,6 @@ public interface IProxy {
 
     public abstract void spawnClientParticles(EntityPlayer player, EnumParticleTypes type, double offsetX, double offsetY, double offsetZ);
 
-    public abstract void spawnServerParticles();
+    public abstract void spawnServerParticles(String particleName, int dimensionId, double xCoord, double yCoord, double zCoord, double xVelocity, double yVelocity, double zVelocity);
 
 }

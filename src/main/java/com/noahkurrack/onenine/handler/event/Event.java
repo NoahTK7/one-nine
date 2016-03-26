@@ -39,9 +39,20 @@ public class Event {
     @SubscribeEvent
     public void onItemCrafted(PlayerEvent.ItemCraftedEvent event){
 
-        LogHelper.info("Item Crafted");
+        LogHelper.info("Item crafted");
 
-        OneNine.proxy.spawnClientParticles(event.player, EnumParticleTypes.FIREWORKS_SPARK, 0D, 0D, 0D);
+        OneNine.proxy.spawnClientParticles(event.player, EnumParticleTypes.EXPLOSION_LARGE, 0D, 0D, 0D);
+
+    }
+
+    @SubscribeEvent
+    public void onItemPickup(PlayerEvent.ItemPickupEvent event){
+
+        LogHelper.info("Item picked up");
+
+        EntityPlayer player = event.player;
+
+        OneNine.proxy.spawnServerParticles(EnumParticleTypes.SMOKE_LARGE.getParticleName(), player.worldObj.provider.getDimension(), player.posX, player.posY, player.posZ, 0D, 0D, 0D);
 
     }
 

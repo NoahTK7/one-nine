@@ -18,9 +18,12 @@
 
 package com.noahkurrack.onenine.particle;
 
+import com.noahkurrack.onenine.network.MessageSingleParticleEvent;
 import com.noahkurrack.onenine.network.PacketHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class Particle {
 
@@ -29,16 +32,21 @@ public class Particle {
         if (player.worldObj.isRemote) {
 
             player.worldObj.spawnParticle(type, player.posX, player.posY, player.posZ, offsetX, offsetY, offsetZ, new int[0]);
+            //FMLClientHandler.instance().getWorldClient().spawnParticle(type, player.posX, player.posY, player.posZ, offsetX, offsetY, offsetZ, new int[0]);
 
         }
 
 
     }
 
-    public static void spawnServerParticles(){
+    public static void spawnParticleAtLocation(String particleName, int dimensionId, double xCoord, double yCoord, double zCoord, double xVelocity, double yVelocity, double zVelocity)
+    {
+        spawnParticleAtLocation(particleName, dimensionId, xCoord, yCoord, zCoord, xVelocity, yVelocity, zVelocity, 64d);
+    }
 
-        //PacketHandler.INSTANCE.sendToAllAround();
-
+    public static void spawnParticleAtLocation(String particleName, int dimensionId, double xCoord, double yCoord, double zCoord, double xVelocity, double yVelocity, double zVelocity, double range)
+    {
+        PacketHandler.INSTANCE.sendToAllAround(new MessageSingleParticleEvent(particleName, xCoord, yCoord, zCoord, xVelocity, yVelocity, zVelocity), new NetworkRegistry.TargetPoint(dimensionId, xCoord, yCoord, zCoord, range));
     }
 
 }

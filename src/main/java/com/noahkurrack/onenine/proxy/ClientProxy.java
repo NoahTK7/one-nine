@@ -32,9 +32,9 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void spawnServerParticles(){
+    public void spawnServerParticles(String particleName, int dimensionId, double xCoord, double yCoord, double zCoord, double xVelocity, double yVelocity, double zVelocity){
 
-        Particle.spawnServerParticles();
+        Particle.spawnParticleAtLocation(particleName, dimensionId, xCoord, yCoord, xCoord, xVelocity, yVelocity, zVelocity);
 
     }
 
